@@ -10,3 +10,9 @@
  * );
  */
 
+return array(
+	'server' => 'localhost',
+	'username' => 'stress1',
+	'database' => 'stress1',
+	'password' => 'stress1',	
+);

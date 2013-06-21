@@ -31,7 +31,7 @@ mysql_select_db($config['database'],$conn);
 // Verify tables.
 $tables_result = mysql_query('SHOW TABLES;',$conn);
 
-if( mysql_num_rows($tables_result) )
+if( ! $tables_result OR mysql_num_rows($tables_result) )
 	die("Install can only be run once.\n");
 
 // Setup Tables
@@ -57,7 +57,7 @@ if( ! mysql_query($results_table_query) )
 	die("Failed to create results table.\n");
 
 // Create test data.
-for( $i = 0; $i < 10000; $i++ )
+for( $i = 0; $i < 50000; $i++ )
 {
 	$hash = helper_generatehash();
 	$insert_hash_query = 'INSERT INTO hashes (hash,count) VALUES ("'.$hash.'",'.rand(100000,999999).'.'.rand(000,999).');';
