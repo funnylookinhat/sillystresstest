@@ -81,4 +81,4 @@ while( $result = mysql_fetch_array($results_result) )
 
 $end_time = time();
 
-die("Best so far: ".$longest_hash." (".$longest_count.")\n"."Completed in: ".( $end_time - $start_time )." seconds.\n");
+die("Best so far: ".$longest_hash." (".$longest_count.")"." Completed in: ".( $end_time - $start_time )." seconds.\n");
