@@ -41,7 +41,6 @@ $start_time = time();
 for( $i = 0; $i < 10; $i++ )
 {
 	$short_hash = helper_generateshorthash();
-	echo "SEARCH: ".$short_hash."\n";
 
 	$count_result = mysql_query("SELECT SUM(count) as total FROM hashes WHERE hash LIKE '%".$short_hash."%'");
 	if( ! $count_result )
@@ -82,5 +81,4 @@ while( $result = mysql_fetch_array($results_result) )
 
 $end_time = time();
 
-echo "Best so far: ".$longest_hash." (".$longest_count.")\n";
-die("Complete: ".( $end_time - $start_time )." seconds.\n");
+die("Best so far: ".$longest_hash." (".$longest_count.")\n"."Completed in: ".( $end_time - $start_time )." seconds.\n");
