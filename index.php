@@ -38,7 +38,7 @@ if( ! mysql_num_rows($tables_result) )
 $start_time = time();
 
 // Run Test
-for( $i = 0; $i < 250; $i++ )
+for( $i = 0; $i < 100; $i++ )
 {
 	$short_hash = helper_generateshorthash();
 

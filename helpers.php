@@ -1,5 +1,19 @@
 <?php defined('LOCKED-ACCESS') or die('No direct access allowed.');
 
+function helper_generatehashfast()
+{
+	$hash = md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
+			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
+			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
+			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
+			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
+			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
+			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
+			md5(time().rand(1000,9999).microtime().rand(1000,9999).time());
+
+	return $hash;
+}
+
 function helper_generatehash()
 {
 	// Source for hash.

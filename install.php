@@ -57,9 +57,9 @@ if( ! mysql_query($results_table_query) )
 	die("Failed to create results table.\n");
 
 // Create test data.
-for( $i = 0; $i < 5000; $i++ )
+for( $i = 0; $i < 100; $i++ )
 {
-	$hash = helper_generatehash();
+	$hash = helper_generatehashfast();
 	$insert_hash_query = 'INSERT INTO hashes (hash,count) VALUES ("'.$hash.'",'.rand(100000,999999).'.'.rand(000,999).');';
 	if( ! mysql_query($insert_hash_query) )
 		die("Could not insert hash: ".mysql_error()."\n");
