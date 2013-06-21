@@ -12,7 +12,7 @@ function helper_generatehash()
 			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
 			md5(time().rand(1000,9999).microtime().rand(1000,9999).time());
 
-	for( $a = 0; $a < rand(0,1000); $a++ ) {
+	for( $a = 0; $a < rand(1,10); $a++ ) {
 		$hash = md5(substr($hash,rand(0,223),rand(0,32))).
 				md5(substr($hash,rand(0,223),rand(0,32))).
 				md5(substr($hash,rand(0,223),rand(0,32))).
