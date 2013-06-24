@@ -30,6 +30,7 @@
 							console.log(data);
 							if( ! data.success ) {
 								run = false;
+								$(this).text("Start");
 								$result = $('<p>ERROR: '+data.error+'</p>');
 								$('#log').prepend($result);
 							} else {
@@ -68,6 +69,11 @@
 						setTimeout((function() { runTest(); } ),50);
 					}
 				});
+
+				if( window.location.hash ) {
+					alert("HASH: "+window.location.hash);
+				}
+
 			});
 		</script>
 	</body>
