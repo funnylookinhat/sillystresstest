@@ -23,6 +23,8 @@
 					$.get(
 						'/run.php',
 						function (data) {
+							console.log("DONE! ");
+							console.log(data);
 							if( ! data.success ) {
 								run = false;
 								$result = $('<p>ERROR: '+data.error+'</p>');
