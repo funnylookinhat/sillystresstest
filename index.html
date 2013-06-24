@@ -62,6 +62,7 @@
 						run = false;
 						$(this).text("Start");
 					} else {
+						delay = parseInt($('#delay').val());
 						run = true;
 						$(this).text("Stop");
 						setTimeout((function() { runTest(); } ),50);
