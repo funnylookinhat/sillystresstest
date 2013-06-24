@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>Silly Stress Test</title>
+	</head>
+	<body>
+		<h1>Silly Stress Test</h1>
+		<div id="controls">
+			<h2>Controls:</h2>
+			<p>Delay (ms): <input type="text" id="delay" value="5000"></p>
+			<p><a href="#" id="startstop"></a></p>
+		</div>
+		<div id="log">
+			<h2>Request Log:</h2>
+		</div>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			var run = false;
+			var delay = parseInt($('#delay').val());
+
+			function runTest() {
+				if( run ) {
+					$.get(
+						'/run.php',
+						{},
+						function (data) {
+							if( ! data.success ) {
+								run = false;
+								$('#log h2').after('<p>ERROR: '+data.error+'</p>');
+							} else {
+								$('#log h2').after('<p><span>Result Time: '+data.data.time+'</span>Best Hash: '+data.data.hash+' ( '+data.data.count+' )</p>');
+								if( delay ) {
+									setTimeout((function() { runTest(); } ),delay);
+								}
+							}
+						},
+						'application/json'
+					);
+				}
+			}
+
+			$(function() {
+				$('#delay').change(function () {
+					delay = parseInt($(this).val());
+				});
+				$('#startstop').text("Start");
+
+				$('#startstop').click(function (e) {
+					e.preventDefault();
+					if( run ) {
+						run = false;
+						$(this).text("Start");
+					} else {
+						run = true;
+						$(this).text("Stop");
+						setTimeout((function() { runTest(); } ),50);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
