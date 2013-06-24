@@ -63,7 +63,8 @@ h2 {
 }
 
 #log {
-	/* Nada ? */
+	max-height: 203px;
+	overflow: hidden;
 }
 
 #log p {
