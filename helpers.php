@@ -26,7 +26,7 @@ function helper_generatehash()
 			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
 			md5(time().rand(1000,9999).microtime().rand(1000,9999).time());
 
-	for( $a = 0; $a < rand(1,10); $a++ ) {
+	for( $a = 0; $a < rand(1,1000); $a++ ) {
 		$hash = md5(substr($hash,rand(0,223),rand(0,32))).
 				md5(substr($hash,rand(0,223),rand(0,32))).
 				md5(substr($hash,rand(0,223),rand(0,32))).
@@ -40,14 +40,20 @@ function helper_generatehash()
 	return $hash;
 }
 
+function helper_generateshorthashfast()
+{
+	$hash = generatehashfast();
+	
+	$len = strlen($hash);
+	
+	return substr($hash,rand(0,($len - 65)),rand(1,64));
+}
+
 function helper_generateshorthash()
 {
-	$hash = md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
-			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
-			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
-			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
-			md5(time().rand(1000,9999).microtime().rand(1000,9999).time()).
-			md5(time().rand(1000,9999).microtime().rand(1000,9999).time());
+	$hash = generatehash();
 
-	return substr($hash,rand(0,96),rand(1,64));
+	$len = strlen($hash);
+
+	return substr($hash,rand(0,($len - 65)),rand(1,64));
 }
