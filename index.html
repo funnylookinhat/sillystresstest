@@ -9,7 +9,7 @@
 			<h2>Controls:</h2>
 			<p>Delay (ms): <input type="text" id="delay" value="5000"><a href="#" id="startstop"></a></p>
 		</div>
-		<div>
+		<div id="log-wrapper">
 			<h2>Request Log:</h2>
 			<div id="log"></div>
 		</div>
@@ -30,7 +30,9 @@
 								$result = $('<p>ERROR: '+data.error+'</p>');
 								$('#log').prepend($result);
 							} else {
-								$result = $('<p><span>Result Time: '+data.data.time+'</span>Best Hash: '+data.data.hash+' ( '+data.data.count+' )</p>');
+								var time = new Date();
+								var timestamp = time.getHours()+':'+time.getMinutes()+':'+time.getSeconds();
+								$result = $('<p><span class="time">Result Time: '+data.data.time+'</span>Best Hash: '+data.data.hash+' ( '+data.data.count+' )<span class="timestamp">'+timestamp+'</p>');
 								$('#log').prepend($result);
 								if( delay ) {
 									setTimeout(function() { runTest(); },delay);

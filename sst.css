@@ -30,7 +30,7 @@ h2 {
 
 #controls {
 	margin-bottom: 20px;
-	width: 400px; 
+	width: 250px; 
 	margin: 0px auto 20px auto;
 	border: 1px solid #999999;
 	padding: 10px;
@@ -56,17 +56,28 @@ h2 {
 #log p {
 	font-size: 12px;
 	line-height: 12px;
-	padding: 3px 0px;
+	padding: 0px;
 	text-align: left;
+	height: 12px;
+	margin: 5px;
 }
 
-#log p span {
+#log p span.time {
 	display: inline-block;
-	width: 100px;
+	width: 125px;
+}
+
+#log p span.timestamp {
+	float: right;
 }
 
 #startstop {
 	float: right;
+	margin-top: 3px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: none;
 }
 
 input[type="text"] {
