@@ -10,13 +10,16 @@
 			<p>Delay (ms): <input type="text" id="delay" value="5000"><a href="#" id="startstop"></a></p>
 		</div>
 		<div id="log-wrapper">
-			<h2>Request Log:</h2>
+			<h2>Request Log:<span id="average"></span></h2>
 			<div id="log"></div>
 		</div>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript">
 			var run = false;
 			var delay = parseInt($('#delay').val());
+			var total = 0;
+			var count = 0;
+			var average = 0;
 
 			function runTest() {
 				if( run ) {
@@ -30,6 +33,10 @@
 								$result = $('<p>ERROR: '+data.error+'</p>');
 								$('#log').prepend($result);
 							} else {
+								total += parseInt(data.data.time);
+								count++;
+								average = parseFloat( total / count ).toFixed(2);
+								$("#average").text(average);
 								var time = new Date();
 								var timestamp = ( time.getHours() < 10 ? '0'+time.getHours() : time.getHours() )+':'+( time.getMinutes() < 10 ? '0'+time.getMinutes() : time.getMinutes() )+':'+( time.getSeconds() < 10 ? '0'+time.getSeconds() : time.getSeconds() );
 								$result = $('<p><span class="time">Result Time: '+data.data.time+'</span>Best Hash: '+data.data.hash+' ( '+data.data.count+' )<span class="timestamp">'+timestamp+'</p>');
