@@ -12,6 +12,7 @@ define('LOCKED-ACCESS',"blech.");
 
 function jsonerror($error)
 {
+	header('Content-type: application/json');
 	die(json_encode((object)array(
 		'success' => 0,
 		'error' => $error,
@@ -90,6 +91,7 @@ while( $result = mysql_fetch_array($results_result) )
 
 $end_time = time();
 
+header('Content-type: application/json');
 die(json_encode((object)array(
 	'success' => 1,
 	'error' => "",
