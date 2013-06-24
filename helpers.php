@@ -42,7 +42,7 @@ function helper_generatehash()
 
 function helper_generateshorthashfast()
 {
-	$hash = generatehashfast();
+	$hash = helper_generatehashfast();
 	
 	$len = strlen($hash);
 	
@@ -51,7 +51,7 @@ function helper_generateshorthashfast()
 
 function helper_generateshorthash()
 {
-	$hash = generatehash();
+	$hash = helper_generatehash();
 
 	$len = strlen($hash);
 
