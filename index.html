@@ -31,7 +31,7 @@
 								$('#log').prepend($result);
 							} else {
 								var time = new Date();
-								var timestamp = time.getHours()+':'+time.getMinutes()+':'+time.getSeconds();
+								var timestamp = ( time.getHours() < 10 ? '0'+time.getHours() : time.getHours() )+':'+( time.getMinutes() < 10 ? '0'+time.getMinutes() : time.getMinutes() )+':'+( time.getSeconds() < 10 ? '0'+time.getSeconds() : time.getSeconds() );
 								$result = $('<p><span class="time">Result Time: '+data.data.time+'</span>Best Hash: '+data.data.hash+' ( '+data.data.count+' )<span class="timestamp">'+timestamp+'</p>');
 								$('#log').prepend($result);
 								if( delay ) {
