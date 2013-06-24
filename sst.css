@@ -1,0 +1,64 @@
+html, body {
+	font-family: sans-serif;
+	background: #efefef;
+	color: #414141;
+}
+
+* { 
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: none;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+	font-size: 36px;
+	line-height: 36px;
+	margin: 0px 0px 10px 0px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 18px;
+	line-height: 18px;
+	margin: 0px 0px 5px 0px;
+	text-align: center;
+}
+
+#controls {
+	margin-bottom: 20px;
+	width: 300px; 
+	margin: 0px auto 10px auto;
+	border: 1px solid #999999;
+	padding: 10px;
+	text-align: left;
+	font-size: 14px;
+}
+
+#log {
+	width: 500px;
+	margin: 0px auto;
+	border: 1px solid #999999;
+	padding: 10px;
+}
+
+#log p {
+	font-size: 12px;
+	line-height: 12px;
+	padding: 3px 0px;
+	text-align: left;
+}
+
+#log p span {
+	display: inline-block;
+	width: 100px;
+}
+
+input[type="text"] {
+	font-size: 14px;
+	padding: 3px 5px;
+	width: 100px;
+	border: 1px solid #cccccc;
+	background: white;
+}
