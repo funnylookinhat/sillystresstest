@@ -71,7 +71,10 @@
 				});
 
 				if( window.location.hash ) {
-					alert("HASH: "+window.location.hash);
+					delay = parseInt(window.location.hash.replace('#',''));
+					run = true;
+					$('#startstop').text("Stop");
+					setTimeout((function() { runTest(); } ),50);
 				}
 
 			});
