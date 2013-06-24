@@ -26,6 +26,7 @@ h2 {
 	text-align: center;
 	border-bottom: 1px solid #cccccc;
 	padding-bottom: 10px;
+	position: relative;
 }
 
 #controls {
@@ -50,12 +51,15 @@ h2 {
 }
 
 #average {
-	float: right;
+	position: absolute;
 	font-size: 14px;
 	line-height: 14px;
 	text-align: right;
 	margin-top: 4px;
 	font-weight: normal;
+	top: 0px;
+	width: 150px;
+	right: 0px;
 }
 
 #log {
