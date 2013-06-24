@@ -63,7 +63,7 @@ h2 {
 }
 
 #log {
-	max-height: 203px;
+	height: 203px;
 	overflow: hidden;
 }
 
