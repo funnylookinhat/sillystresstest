@@ -17,20 +17,21 @@
 		<script type="text/javascript">
 			var run = false;
 			var delay = parseInt($('#delay').val());
-			
+
 			function runTest() {
 				if( run ) {
 					$.get(
 						'/run.php',
-						{},
 						function (data) {
 							if( ! data.success ) {
 								run = false;
-								$('#log').append('<p>ERROR: '+data.error+'</p>');
+								$result = $('<p>ERROR: '+data.error+'</p>');
+								$('#log').append($result);
 							} else {
-								$('#log').append('<p><span>Result Time: '+data.data.time+'</span>Best Hash: '+data.data.hash+' ( '+data.data.count+' )</p>');
+								$result = $('<p><span>Result Time: '+data.data.time+'</span>Best Hash: '+data.data.hash+' ( '+data.data.count+' )</p>');
+								$('#log').append($result);
 								if( delay ) {
-									setTimeout((function() { runTest(); } ),delay);
+									setTimeout(function() { runTest(); },delay);
 								}
 							}
 						},
