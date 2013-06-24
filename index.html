@@ -9,14 +9,15 @@
 			<p>Delay (ms): <input type="text" id="delay" value="5000"></p>
 			<p><a href="#" id="startstop"></a></p>
 		</div>
-		<div id="log">
+		<div>
 			<h2>Request Log:</h2>
+			<div id="log"></div>
 		</div>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript">
 			var run = false;
 			var delay = parseInt($('#delay').val());
-
+			
 			function runTest() {
 				if( run ) {
 					$.get(
@@ -25,9 +26,9 @@
 						function (data) {
 							if( ! data.success ) {
 								run = false;
-								$('#log h2').after('<p>ERROR: '+data.error+'</p>');
+								$('#log').append('<p>ERROR: '+data.error+'</p>');
 							} else {
-								$('#log h2').after('<p><span>Result Time: '+data.data.time+'</span>Best Hash: '+data.data.hash+' ( '+data.data.count+' )</p>');
+								$('#log').append('<p><span>Result Time: '+data.data.time+'</span>Best Hash: '+data.data.hash+' ( '+data.data.count+' )</p>');
 								if( delay ) {
 									setTimeout((function() { runTest(); } ),delay);
 								}
