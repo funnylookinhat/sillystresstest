@@ -15,32 +15,42 @@ html, body {
 h1 {
 	font-size: 36px;
 	line-height: 36px;
-	margin: 0px 0px 10px 0px;
+	margin: 50px 0px 20px 0px;
 	text-align: center;
 }
 
 h2 {
 	font-size: 18px;
 	line-height: 18px;
-	margin: 0px 0px 5px 0px;
+	margin: 0px 0px 10px 0px;
 	text-align: center;
+	border-bottom: 1px solid #cccccc;
+	padding-bottom: 10px;
 }
 
 #controls {
 	margin-bottom: 20px;
-	width: 300px; 
-	margin: 0px auto 10px auto;
+	width: 400px; 
+	margin: 0px auto 20px auto;
 	border: 1px solid #999999;
 	padding: 10px;
 	text-align: left;
 	font-size: 14px;
 }
 
-#log {
-	width: 500px;
+#controls p {
+	margin: 5px 0px;
+}
+
+#log-wrapper {
+	width: 600px;
 	margin: 0px auto;
 	border: 1px solid #999999;
 	padding: 10px;
+}
+
+#log {
+	/* Nada ? */
 }
 
 #log p {
@@ -53,6 +63,10 @@ h2 {
 #log p span {
 	display: inline-block;
 	width: 100px;
+}
+
+#startstop {
+	float: right;
 }
 
 input[type="text"] {
